@@ -46,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         seekBar.setMax(mediaPlayer.getDuration());
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                seekBar.setProgress(mediaPlayer.getCurrentPosition());
+            }
+        },0,900);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
